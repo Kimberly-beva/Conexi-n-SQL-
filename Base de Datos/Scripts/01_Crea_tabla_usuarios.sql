@@ -1,0 +1,10 @@
+CREATE TABLE Usuarios(
+	IdUsuario INT IDENTITY(1,1)
+	, Usuario VARCHAR(30) NOT NULL
+	, Password VARCHAR(30) NOT NULL
+	, Nombre VARCHAR(30) NOT NULL
+	, FechaActualizado DATETIME NOT NULL
+	, IdUsuarioActualiza UNIQUEIDENTIFIER NULL
+)
+
+CREATE UNIQUE CLUSTERED INDEX CIX_Usuarios ON dbo.Usuarios(IdUsuario)
