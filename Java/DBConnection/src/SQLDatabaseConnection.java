@@ -7,13 +7,22 @@ public class SQLDatabaseConnection {
         
         Connection Conn = null;
 
+        //Conexion Omar
         String connectionUrl =
+                "jdbc:sqlserver://192.168.10.50;"
+                + "database=SAYTO_WMS;"
+                + "user=sa;"
+                + "password=DataWare23;"
+                + "encrypt=false";
+        
+        //Conexion Kimy
+        /*String connectionUrl =
                 "jdbc:sqlserver://192.168.100.23\\SQL22;"
                 + "database=Proyecto;"
                 + "user=sa;"
                 + "password=jajaxdxd13;"
                 + "encrypt=true;"
-                + "TrustServerCertificate=True;";
+                + "TrustServerCertificate=True;";*/
 
         //ResultSet resultSet = null;
 

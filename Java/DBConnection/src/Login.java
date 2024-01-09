@@ -13,15 +13,27 @@ public class Login {
         };
 
         int option = JOptionPane.showConfirmDialog(null, message, "Login", JOptionPane.OK_CANCEL_OPTION);
+
         if (option == JOptionPane.OK_OPTION) {
             if (username.getText().toString().length()>0){
                 if (password.getText().toString().length()>0){
                     vRespuesta = LoginBD.Login(username.getText(), password.getText());
-                    JOptionPane.showMessageDialog(null, vRespuesta, "info", 0);
+                    if (vRespuesta.equals("OK")){
+                        MainMenu mainMenu = new MainMenu();
+                        mainMenu.main(args);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, vRespuesta, "Info", 0);
+                        Login.main(args);
+                    }
                 }
             }
+            else{
+                JOptionPane.showMessageDialog(null, "Favor de rellenar los datos", "Info", 0);
+                Login.main(args);
+            }
         } else {
-            System.out.println("Login canceled");
+            JOptionPane.showMessageDialog(null, "Login Cancelled", "Info", 0);
         }
     }
 }

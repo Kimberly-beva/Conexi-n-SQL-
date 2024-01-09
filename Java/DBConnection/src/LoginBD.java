@@ -18,7 +18,7 @@ public class LoginBD {
                 resultSet = callableStatement.executeQuery();
                 while (resultSet.next()) {
                     if (resultSet.getString("Resultado").equals("OK")){
-                        vRespuesta = "Bienvenido";
+                        vRespuesta = "OK";
                     }
                     else if (resultSet.getString("Resultado").equals("NO EXISTE")){
                         vRespuesta = "Usuario no existe en la base de datos";
