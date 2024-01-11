@@ -2,28 +2,49 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class MainMenu extends JFrame implements ActionListener {
-    JButton salir, consultarUsuarios;
+    JButton exit, getUsers, addUser;
     public MainMenu() {
         setLayout(null);
-        salir=new JButton("Finalizar");
-        salir.setBounds(300,250,100,30);
-        add(salir);
-        salir.addActionListener(this);
+
+        exit=new JButton("Finalizar");
+        exit.setBounds(300,250,100,30);
+        add(exit);
+        exit.addActionListener(this);
         
-        consultarUsuarios=new JButton("Consultar Usuarios");
-        consultarUsuarios.setBounds(10,10,200,30);
-        add(consultarUsuarios);
-        consultarUsuarios.addActionListener(this);
+        getUsers=new JButton("Consultar Usuarios");
+        getUsers.setBounds(10,10,200,30);
+        add(getUsers);
+        getUsers.addActionListener(this);
+
+        addUser=new JButton("Agrega usuario");
+        addUser.setBounds(10,60,200,30);
+        add(addUser);
+        addUser.addActionListener(this);
+
+
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                dispose();
+                JOptionPane.showMessageDialog(null, "Sesion finalizada", "Info", 0);
+                Login.main(null);
+            }
+        });
     }
     
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource()==salir) {
+        if (e.getSource()==exit) {
             System.exit(0);
         }
-        if (e.getSource()==consultarUsuarios) {
+        if (e.getSource()==getUsers) {
             //JOptionPane.showMessageDialog(null, "Consulta de usuarios en construccion...", "Info", 0);
             GetUsers.main(null);
+            this.setVisible(false);
         }
+
+        if (e.getSource()==addUser) {
+            JOptionPane.showMessageDialog(null, "Agregar usuario en construccion...", "Info", 0);
+        }
+
     }
     
     public static void main(String[] ar) {

@@ -20,11 +20,11 @@ public class Login {
                     vRespuesta = LoginBD.Login(username.getText(), password.getText());
                     if (vRespuesta.equals("OK")){
                         MainMenu mainMenu = new MainMenu();
-                        mainMenu.main(args);
+                        mainMenu.main(null);
                     }
                     else{
                         JOptionPane.showMessageDialog(null, vRespuesta, "Info", 0);
-                        Login.main(args);
+                        Login.main(null);
                     }
                 }
             }
@@ -33,7 +33,7 @@ public class Login {
                 Login.main(args);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Login Cancelled", "Info", 0);
+            JOptionPane.showMessageDialog(null, "Hasta luego", "Info", 0);
         }
     }
 }
