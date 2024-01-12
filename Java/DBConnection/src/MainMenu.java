@@ -3,20 +3,23 @@ import java.awt.event.*;
 
 public class MainMenu extends JFrame implements ActionListener {
     JButton exit, getUsers, addUser;
+    
     public MainMenu() {
+
+
         setLayout(null);
 
-        exit=new JButton("Finalizar");
+        exit = new JButton("Finalizar");
         exit.setBounds(300,250,100,30);
         add(exit);
         exit.addActionListener(this);
         
-        getUsers=new JButton("Consultar Usuarios");
+        getUsers = new JButton("Consultar Usuarios");
         getUsers.setBounds(10,10,200,30);
         add(getUsers);
         getUsers.addActionListener(this);
 
-        addUser=new JButton("Agrega usuario");
+        addUser = new JButton("Agregar usuario");
         addUser.setBounds(10,60,200,30);
         add(addUser);
         addUser.addActionListener(this);
@@ -42,7 +45,10 @@ public class MainMenu extends JFrame implements ActionListener {
         }
 
         if (e.getSource()==addUser) {
-            JOptionPane.showMessageDialog(null, "Agregar usuario en construccion...", "Info", 0);
+            dispose();
+            //JOptionPane.showMessageDialog(null, "Agregar usuario en construccion...", "Info", 0);
+            AddUser.main(null);
+            this.setVisible(false);
         }
 
     }

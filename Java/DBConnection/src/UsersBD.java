@@ -35,4 +35,32 @@ public class UsersBD {
         return lista;
     }
 
+    public static String AddUser(String user, String pass, String name) {
+        String vRespuesta = "";
+        Connection connection = null;
+        ResultSet resultSet = null;
+        CallableStatement callableStatement = null;
+     
+        try{
+            connection = SQLDatabaseConnection.Connect();
+            if (connection != null){
+                String sp = "{call dbo.spUsuariosAgregar(?,?,?)}";
+                callableStatement = connection.prepareCall(sp);
+                callableStatement.setString(1, user);
+                callableStatement.setString(2, name);
+                callableStatement.setString(3, pass);
+                resultSet = callableStatement.executeQuery();
+                while (resultSet.next()) {
+                   vRespuesta=resultSet.getString("Resultado");
+                }
+                SQLDatabaseConnection.releaseConnection(connection);
+            }
+
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+                
+        return vRespuesta;
+    }
+
 }
